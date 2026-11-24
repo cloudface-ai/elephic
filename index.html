@@ -122,17 +122,11 @@ nav .pill:hover{background:var(--accent)}
 h1{font-size:clamp(44px,7vw,84px);font-weight:800;margin:26px 0 26px;max-width:14ch}
 .lead{max-width:56ch;color:var(--muted);font-size:19px}
 .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
-.chips{position:absolute;right:var(--gutter);top:30px;width:170px;height:340px;pointer-events:none}
-.chip{position:absolute;font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;box-shadow:0 10px 24px -14px rgba(74,36,196,.45);animation:bob 6s ease-in-out infinite}
-.c1{top:10px;right:0}.c2{top:95px;right:30px;animation-delay:-2s}.c3{top:180px;right:0;animation-delay:-4s}.c4{top:265px;right:24px;animation-delay:-1s}
+.icos{position:absolute;right:var(--gutter);top:30px;width:190px;height:340px;pointer-events:none}
+.ico{position:absolute;width:76px;height:76px;border-radius:24px;background:#fff;border:1px solid var(--line);color:var(--accent);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 34px -18px rgba(74,36,196,.5);animation:bob 6s ease-in-out infinite}
+.ico svg{width:34px;height:34px}
+.i1{top:0;right:90px}.i2{top:96px;right:0;animation-delay:-2s}.i3{top:196px;right:96px;animation-delay:-4s}.i4{top:292px;right:6px;animation-delay:-1s}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-
-/* marquee */
-.marq{border-block:1px solid var(--line);background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap}
-.marq-t{display:inline-flex;gap:28px;padding:16px 0;animation:mq 32s linear infinite;font-family:'Manrope',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase}
-.marq-t i{font-style:normal;color:#b79bff}
-.marq:hover .marq-t{animation-play-state:paused}
-@keyframes mq{to{transform:translateX(-50%)}}
 
 /* sections */
 section{padding:96px 0;position:relative}
@@ -214,12 +208,11 @@ footer a:hover,footer a:focus-visible{color:#fff}
 .js .rv.in{opacity:1;transform:none}
 .js .rv.in.tilt{transition:opacity .7s ease,transform .15s ease-out,border-color .25s,box-shadow .25s}
 
-@media (max-width:1180px){.chips{display:none}}
+@media (max-width:1180px){.icos{display:none}}
 @media (max-width:900px){
   .prod{grid-template-columns:1fr;gap:26px}
   .g4{grid-template-columns:repeat(2,1fr)}
   .contact{grid-template-columns:1fr}
-  .chips{display:none}
 }
 @media (max-width:640px){
   .prod{padding:30px 22px}
@@ -230,14 +223,13 @@ footer a:hover,footer a:focus-visible{color:#fff}
   nav a.hide-sm{display:none}
   dl.info{grid-template-columns:1fr;gap:2px 0}
   dl.info dd{margin-bottom:12px}
-  .marq-t{font-size:16px}
   .fmeta .sep{display:none}
   .fmeta p a{display:block}
 }
 @media (hover:none){.glow{display:none}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .blob,.chip,.marq-t{animation:none}
+  .blob,.ico{animation:none}
   .js .rv{opacity:1;transform:none;transition:none}
   .btn,.card,.prod,nav a{transition:none}
 }
@@ -271,11 +263,9 @@ footer a:hover,footer a:focus-visible{color:#fff}
         <a class="btn btn-primary mag" href="#products">Explore our products</a>
         <a class="btn btn-ghost mag" href="#contact">Get in Touch</a>
       </div>
-      <div class="chips" aria-hidden="true"><span class="chip c1">AI Automation</span><span class="chip c2">Software</span><span class="chip c3">Cloud</span><span class="chip c4">Web &amp; Mobile</span></div>
+      <div class="icos" aria-hidden="true"><span class="ico i1" title="AI Automation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/><path d="M10 12h4"/></svg></span><span class="ico i2" title="Software"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span><span class="ico i3" title="Cloud"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4 4 0 010-8 5.5 5.5 0 0110.7 1.3A3.4 3.4 0 0117 18H7z"/></svg></span><span class="ico i4" title="Web and Mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="14" height="11" rx="2"/><path d="M6 19h6M9 15v4"/><rect x="18" y="8" width="4" height="10" rx="1"/></svg></span></div>
     </div>
   </div>
-  <div class="marq" aria-hidden="true"><div class="marq-t"><span>EcomGen</span><i>&#10022;</i><span>CloudFace AI</span><i>&#10022;</i><span>TrimPixo</span><i>&#10022;</i><span>AI Automation</span><i>&#10022;</i><span>Cloud Solutions</span><i>&#10022;</i><span>EcomGen</span><i>&#10022;</i><span>CloudFace AI</span><i>&#10022;</i><span>TrimPixo</span><i>&#10022;</i><span>AI Automation</span><i>&#10022;</i><span>Cloud Solutions</span><i>&#10022;</i></div></div>
-
   <section id="products" aria-labelledby="products-h">
     <div class="wrap">
       <p class="kicker">01 &mdash; Our Products</p>
