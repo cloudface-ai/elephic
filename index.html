@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elephic Intelligence | Software, AI Automation and Cloud Solutions</title>
+<meta name="description" content="Elephic Intelligence Private Limited delivers software development, AI automation, web and mobile apps and cloud solutions. Makers of EcomGen, CloudFace AI and TrimPixo.">
+<link rel="canonical" href="https://elephictech.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Elephic Intelligence | Innovation Through Technology">
+<meta property="og:description" content="Software development, AI automation and cloud solutions. Makers of EcomGen, CloudFace AI and TrimPixo.">
+<meta property="og:url" content="https://elephictech.com/">
+<meta property="og:image" content="https://elephictech.com/logo.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://elephictech.com/#organization",
+      "name": "Elephic Intelligence Private Limited",
+      "alternateName": "Elephic Intelligence",
+      "url": "https://elephictech.com/",
+      "logo": "https://elephictech.com/logo.png",
+      "email": "info@elephictech.com",
+      "telephone": "+91 9718 686 723",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B-01, Ground Floor, Tower B, IRIS Tech Park, Sector 48",
+        "addressLocality": "Gurugram",
+        "addressRegion": "Haryana",
+        "postalCode": "122018",
+        "addressCountry": "IN"
+      },
+      "owns": [
+        { "@type": "Organization", "name": "EcomGen", "url": "https://ecomgen.io/" },
+        { "@type": "Organization", "name": "CloudFace AI", "url": "https://cloudface-ai.com/" },
+        { "@type": "Organization", "name": "TrimPixo", "url": "https://trimpixo.com/" }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://elephictech.com/#website",
+      "url": "https://elephictech.com/",
+      "name": "Elephic Intelligence",
+      "publisher": { "@id": "https://elephictech.com/#organization" }
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#ffffff;
+  --tint:#f4f7fb;
+  --ink:#0f172a;
+  --muted:#5b6678;
+  --line:#e3e8f0;
+  --accent:#2f5bea;
+  --accent-ink:#1e3fb8;
+  --accent-soft:#e9efff;
+  --max:1120px;
+  --gutter:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:'Manrope','Inter',system-ui,sans-serif;letter-spacing:-.02em;line-height:1.15}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px;line-height:1;text-decoration:none}
+.brand img{width:40px;height:40px;border-radius:10px;display:block}
+.brand .t{display:flex;flex-direction:column}
+.brand b{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;letter-spacing:.06em}
+.brand small{font-size:10px;letter-spacing:.3em;color:var(--muted);margin-top:4px}
+nav{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+nav .pill{color:#fff;background:var(--accent);padding:9px 18px;border-radius:999px}
+nav .pill:hover,nav .pill:focus-visible{background:var(--accent-ink);color:#fff}
+
+/* buttons */
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;transition:background .2s,border-color .2s,color .2s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--accent-ink)}
+.btn-ghost{border:1.5px solid var(--line);color:var(--ink);background:#fff}
+.btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--accent);color:var(--accent)}
+
+/* hero */
+.hero{padding:104px 0 96px;background:radial-gradient(1000px 420px at 85% -10%,var(--accent-soft),transparent 70%)}
+.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(40px,6.4vw,72px);font-weight:800;margin:22px 0 22px;max-width:16ch}
+.lead{max-width:58ch;color:var(--muted);font-size:19px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+
+/* sections */
+section{padding:84px 0}
+section.alt{background:var(--tint)}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px}
+.sub{color:var(--muted);max-width:60ch;margin-bottom:44px;font-size:17px}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 26px}
+.card h3{font-size:21px;font-weight:700;margin-bottom:10px}
+.card p{color:var(--muted);font-size:15px}
+
+/* products */
+.prods{display:grid;gap:22px}
+.prod{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px 36px;transition:border-color .2s,box-shadow .2s}
+.prod:hover{border-color:var(--accent);box-shadow:0 14px 34px -18px rgba(47,91,234,.35)}
+.prod .domain{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:10px}
+.prod h3{font-size:34px;font-weight:800;margin-bottom:8px}
+.prod .tag{font-size:17px;font-weight:600;color:var(--accent-ink);margin-bottom:16px;line-height:1.35}
+.prod p.d{color:var(--muted);font-size:16px;margin-bottom:26px}
+.prod h4{font-family:'Manrope','Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.prod ul{list-style:none;display:grid;gap:11px;margin-bottom:22px}
+.prod li{position:relative;padding-left:28px;font-size:15px;line-height:1.5}
+.prod li::before{content:"";position:absolute;left:1px;top:6px;width:12px;height:7px;border-left:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(-45deg)}
+.prod .for{font-size:14px;color:var(--muted);line-height:1.6}
+.prod .for b{color:var(--ink);font-weight:600}
+
+/* about */
+.mv .card{background:#fff}
+.mv h3{color:var(--accent-ink)}
+
+/* services */
+.num{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent-ink);font-weight:700;font-size:14px;margin-bottom:16px}
+ul.tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+ul.tags li{font-size:13px;color:var(--accent-ink);background:var(--accent-soft);padding:5px 12px;border-radius:999px;font-weight:500}
+
+/* why */
+.tick{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;margin-bottom:16px}
+.tick svg{width:18px;height:18px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+dl.info{display:grid;grid-template-columns:90px 1fr;gap:14px 16px;font-size:16px}
+dl.info dt{color:var(--muted)}
+dl.info a{color:var(--accent-ink);font-weight:600;text-underline-offset:3px}
+.cta-box{background:var(--ink);color:#fff;border-radius:20px;padding:36px 32px}
+.cta-box h3{font-size:26px;font-weight:800;margin-bottom:12px}
+.cta-box p{color:#c3cad8;margin-bottom:24px}
+.cta-box .btn{background:#fff;color:var(--ink)}
+.cta-box .btn:hover,.cta-box .btn:focus-visible{background:var(--accent-soft)}
+
+/* footer */
+footer{background:#111827;color:#a9b1c1;padding:34px 0 30px;font-size:14px}
+.frow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px}
+.flogo{font-family:'Manrope','Inter',sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1}
+.flogo span{color:#4f7bff}
+.flinks{display:flex;flex-wrap:wrap;gap:8px 24px;list-style:none}
+footer a{color:#a9b1c1;text-decoration:none}
+footer a:hover,footer a:focus-visible{color:#fff}
+.fmeta{margin-top:22px;padding-top:20px;border-top:1px solid #243049;font-size:13px;line-height:1.7;align-items:flex-start}
+.fmeta p{margin:0}
+.fmeta .sep{margin:0 8px;opacity:.5}
+
+@media (max-width:900px){
+  .prod{grid-template-columns:1fr;gap:26px}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .prod{padding:28px 22px}
+  .prod h3{font-size:29px}
+  .g2,.g4{grid-template-columns:1fr}
+  .hero{padding:64px 0 60px}
+  section{padding:60px 0}
+  nav{gap:14px}
+  nav a.hide-sm{display:none}
+  dl.info{grid-template-columns:1fr;gap:2px 0}
+  dl.info dd{margin-bottom:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .prod,.btn,nav a{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="Elephic Intelligence home"><img src="/logo.png" width="40" height="40" alt=""><span class="t"><b>ELEPHIC</b><small>INTELLIGENCE</small></span></a>
+    <nav aria-label="Main">
+      <a class="hide-sm" href="#products">Products</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a class="hide-sm" href="#services">Services</a>
+      <a class="pill" href="#contact">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Elephic Intelligence</span>
+      <h1>Innovation Through Technology</h1>
+      <p class="lead">Empowering businesses with cutting-edge software solutions, AI automation, and cloud technologies. Transform your vision into reality with Elephic Intelligence.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Get in Touch</a>
+        <a class="btn btn-ghost" href="#services">Our Services</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="products" aria-labelledby="products-h">
+    <div class="wrap">
+      <p class="kicker">Our Products</p>
+      <h2 id="products-h">Products we build and run</h2>
+      <p class="sub">Each product has its own site and its own users.</p>
+      <div class="prods">
+
+        <article class="prod">
+          <div>
+            <p class="domain">ecomgen.io</p>
+            <h3>EcomGen</h3>
+            <p class="tag">The AI studio that builds your fashion brand.</p>
+            <p class="d">EcomGen is an AI fashion production studio for fashion, beauty and lifestyle brands. Upload your product photos and it produces on-model photos, catalogue images, lifestyle visuals, short videos and ad creatives, with no prompt writing needed. Brand DNA keeps your colours, style and tone consistent across everything it makes.</p>
+            <a class="btn btn-primary" href="https://ecomgen.io/">Visit EcomGen &rarr;</a>
+          </div>
+          <div>
+            <h4>What you can do</h4>
+            <ul>
+              <li>Generate on-model, studio, flat-lay and marketplace product photos</li>
+              <li>Create product videos, reels and campaign videos</li>
+              <li>Swap the cast and outfits in a reference video with Swapped</li>
+              <li>Save your Brand DNA so every generation follows your style</li>
+              <li>Plan and run full campaigns with Campaign Builder</li>
+              <li>Process up to 50 products in one batch</li>
+            </ul>
+            <p class="for"><b>Built for</b> fashion, jewellery, beauty and lifestyle brands, D2C sellers, agencies and creative studios. Works with Amazon, Myntra, Flipkart, Meesho, ASOS, Ajio, Shopify and WooCommerce. 250 free credits to start, no card needed.</p>
+          </div>
+        </article>
+
+        <article class="prod">
+          <div>
+            <p class="domain">cloudface-ai.com</p>
+            <h3>CloudFace AI</h3>
+            <p class="tag">Every guest finds their event photos with one selfie.</p>
+            <p class="d">CloudFace AI is an AI face search platform for event photos. Organisers and photographers upload an event's photos and share a QR code or WhatsApp link. Guests take a single selfie, see every photo they appear in, and download them all in one ZIP. Guests do not need to install an app.</p>
+            <a class="btn btn-primary" href="https://cloudface-ai.com/">Visit CloudFace AI &rarr;</a>
+          </div>
+          <div>
+            <h4>What it does</h4>
+            <ul>
+              <li>Selfie face search that works on group, angled and low-light shots</li>
+              <li>Upload from a device or Google Drive, or live from a camera with the desktop uploader for Windows and Mac</li>
+              <li>Share each event with a QR code or a WhatsApp link</li>
+              <li>Custom branding, logo and watermark on deliveries</li>
+              <li>One-click ZIP download in original quality</li>
+              <li>Encrypted storage (AES-256) and one-click data deletion</li>
+            </ul>
+            <p class="for"><b>Built for</b> photographers, event organisers, wedding studios and corporate teams. Start free with 1,000 photos for 7 days, no card needed.</p>
+          </div>
+        </article>
+
+        <article class="prod">
+          <div>
+            <p class="domain">trimpixo.com</p>
+            <h3>TrimPixo</h3>
+            <p class="tag">Simple online image tools.</p>
+            <p class="d">TrimPixo is a set of online image tools. Its batch watermark tool adds a watermark to many images in one go and returns them as a single ZIP, so branding a full set of pictures takes a few clicks.</p>
+            <a class="btn btn-primary" href="https://trimpixo.com/">Visit TrimPixo &rarr;</a>
+          </div>
+          <div>
+            <h4>What it does</h4>
+            <ul>
+              <li>Batch watermark: apply one watermark to many images at once</li>
+              <li>Works with JPG, PNG and WEBP files</li>
+              <li>Choose from six placement positions</li>
+              <li>Download all results as one ZIP</li>
+              <li>Free to use</li>
+            </ul>
+            <p class="for"><b>Built for</b> anyone who needs to watermark or brand images in bulk.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="alt" aria-labelledby="about-h">
+    <div class="wrap">
+      <p class="kicker">About</p>
+      <h2 id="about-h">About Elephic Intelligence Private Limited</h2>
+      <p class="sub">We are a forward-thinking technology company dedicated to delivering innovative software solutions that drive business transformation and growth.</p>
+      <div class="grid g2 mv">
+        <div class="card">
+          <h3>Our Mission</h3>
+          <p>To empower businesses of all sizes with cutting-edge technology solutions that streamline operations, enhance productivity, and unlock new opportunities for growth. We strive to be the trusted technology partner that transforms visionary ideas into impactful digital realities.</p>
+        </div>
+        <div class="card">
+          <h3>Our Vision</h3>
+          <p>To become a global leader in innovative technology solutions, recognized for our excellence in software development, AI automation, and digital transformation. We envision a future where technology seamlessly integrates with business strategy to create sustainable competitive advantages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <p class="kicker">Our Services</p>
+      <h2 id="services-h">Comprehensive technology solutions</h2>
+      <p class="sub">Designed to accelerate your digital transformation journey.</p>
+      <div class="grid g2">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>Software Development</h3>
+          <p>Custom software solutions tailored to your unique business needs. From enterprise applications to scalable platforms, we build robust, maintainable code that stands the test of time.</p>
+          <ul class="tags"><li>Custom Applications</li><li>Enterprise Solutions</li><li>API Development</li><li>System Integration</li></ul>
+        </div>
+        <div class="card">
+          <span class="num">02</span>
+          <h3>AI &amp; Automation</h3>
+          <p>Harness the power of artificial intelligence and machine learning to automate processes, gain insights, and make data-driven decisions that propel your business forward.</p>
+          <ul class="tags"><li>Machine Learning</li><li>Process Automation</li><li>Intelligent Analytics</li><li>Predictive Models</li></ul>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <h3>Web &amp; Mobile Applications</h3>
+          <p>Beautiful, responsive applications that deliver exceptional user experiences across all devices. We create digital experiences that engage users and drive results.</p>
+          <ul class="tags"><li>Responsive Web Apps</li><li>Native Mobile Apps</li><li>Progressive Web Apps</li><li>Cross-Platform Solutions</li></ul>
+        </div>
+        <div class="card">
+          <span class="num">04</span>
+          <h3>Cloud &amp; Digital Solutions</h3>
+          <p>Modern cloud infrastructure and digital transformation services that ensure your business is agile, secure, and ready for the future of technology.</p>
+          <ul class="tags"><li>Cloud Migration</li><li>DevOps Services</li><li>Infrastructure Management</li><li>Digital Strategy</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="alt" aria-labelledby="why-h">
+    <div class="wrap">
+      <p class="kicker">Why Choose Us</p>
+      <h2 id="why-h">Why Choose Elephic Intelligence</h2>
+      <p class="sub">We combine technical excellence with a commitment to your success.</p>
+      <div class="grid g4">
+        <div class="card">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
+          <h3>Fast &amp; Efficient</h3>
+          <p>We deliver high-quality solutions quickly without compromising on excellence.</p>
+        </div>
+        <div class="card">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
+          <h3>Secure &amp; Reliable</h3>
+          <p>Your data security and system reliability are our top priorities.</p>
+        </div>
+        <div class="card">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
+          <h3>Expert Team</h3>
+          <p>Our experienced professionals bring deep technical expertise to every project.</p>
+        </div>
+        <div class="card">
+          <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
+          <h3>Proven Results</h3>
+          <p>Track record of successful implementations and satisfied clients.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="wrap contact">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2 id="contact-h">Get in Touch</h2>
+        <p class="sub">Ready to transform your business? Let's start a conversation.</p>
+        <dl class="info">
+          <dt>Email</dt><dd><a href="mailto:info@elephictech.com">info@elephictech.com</a></dd>
+          <dt>Phone</dt><dd><a href="tel:+919718686723">+91 9718686723</a></dd>
+          <dt>Location</dt><dd>Global Services</dd>
+        </dl>
+      </div>
+      <div class="cta-box">
+        <h3>Let's Build Something Amazing</h3>
+        <p>Whether you're a startup with a bold vision or an enterprise seeking digital transformation, we're here to help bring your ideas to life.</p>
+        <a class="btn" href="mailto:info@elephictech.com?subject=Project%20enquiry">Send Us a Message</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="frow">
+      <p class="flogo">Elephic<span>.</span></p>
+      <ul class="flinks">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fmeta frow">
+      <p>&copy; 2026 ELEPHIC INTELLIGENCE PRIVATE LIMITED &middot; CIN: U62011HR2026PTC149378<br>B-01, Ground Floor, Tower B, IRIS Tech Park, Sector 48, Gurugram, Haryana &ndash; 122018, India</p>
+      <p><a href="mailto:info@elephictech.com">info@elephictech.com</a><span class="sep">/</span><a href="tel:+919718686723">+91 97186 86723</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
