@@ -11,12 +11,12 @@
 <meta property="og:description" content="Software development, AI automation and cloud solutions. Makers of EcomGen, CloudFace AI and TrimPixo.">
 <meta property="og:url" content="https://elephictech.com/">
 <meta property="og:image" content="https://elephictech.com/logo.png">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f6f1fd">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="apple-touch-icon" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Fraunces:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,8 +28,13 @@
       "alternateName": "Elephic Intelligence",
       "url": "https://elephictech.com/",
       "logo": "https://elephictech.com/logo.png",
-      "email": "info@elephictech.com",
+      "email": ["contact@elephictech.com", "info@elephictech.com"],
       "telephone": "+91 9718 686 723",
+      "contactPoint": [
+        { "@type": "ContactPoint", "contactType": "customer support", "email": "contact@elephictech.com" },
+        { "@type": "ContactPoint", "contactType": "sales", "email": "info@elephictech.com" },
+        { "@type": "ContactPoint", "contactType": "human resources", "email": "hr@elephictech.com" }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "B-01, Ground Floor, Tower B, IRIS Tech Park, Sector 48",
@@ -56,80 +61,108 @@
 </script>
 <style>
 :root{
-  --bg:#ffffff;
-  --tint:#f4f7fb;
-  --ink:#0f172a;
-  --muted:#5b6678;
-  --line:#e3e8f0;
-  --accent:#2f5bea;
-  --accent-ink:#1e3fb8;
-  --accent-soft:#e9efff;
+  --bg:#f6f1fd;
+  --tint:#efe6fb;
+  --card:#ffffff;
+  --ink:#16122e;
+  --muted:#5f5a78;
+  --line:#e2d7f4;
+  --accent:#6a3df0;
+  --accent-ink:#4a24c4;
+  --accent-soft:#e9dcfa;
   --max:1120px;
   --gutter:20px;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  font-size:16px;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
+button{font:inherit;cursor:pointer}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
-h1,h2,h3{font-family:'Manrope','Inter',system-ui,sans-serif;letter-spacing:-.02em;line-height:1.15}
+h1,h2,h3{font-family:'Manrope','Inter',system-ui,sans-serif;letter-spacing:-.025em;line-height:1.1}
+em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--accent)}
+
+/* progress + glow */
+.prog{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:30}
+.glow{position:fixed;left:0;top:0;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,rgba(106,61,240,.16),transparent 65%);pointer-events:none;z-index:0;opacity:0;transition:opacity .4s;will-change:transform}
+.glow.on{opacity:1}
 
 /* header */
-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:20;background:rgba(246,241,253,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;height:68px}
 .brand{display:flex;align-items:center;gap:12px;line-height:1;text-decoration:none}
 .brand img{width:40px;height:40px;border-radius:10px;display:block}
 .brand .t{display:flex;flex-direction:column}
 .brand b{font-family:'Manrope',sans-serif;font-size:22px;font-weight:800;letter-spacing:.06em}
 .brand small{font-size:10px;letter-spacing:.3em;color:var(--muted);margin-top:4px}
-nav{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:500}
-nav a{text-decoration:none;color:var(--muted);transition:color .2s}
-nav a:hover,nav a:focus-visible{color:var(--ink)}
-nav .pill{color:#fff;background:var(--accent);padding:9px 18px;border-radius:999px}
-nav .pill:hover,nav .pill:focus-visible{background:var(--accent-ink);color:#fff}
+nav{display:flex;align-items:center;gap:26px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+nav a{text-decoration:none;color:var(--muted);transition:color .2s;position:relative}
+nav a:not(.pill)::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform .25s}
+nav a:not(.pill):hover::after,nav a.act::after{transform:scaleX(1)}
+nav a:hover,nav a.act{color:var(--ink)}
+nav .pill{color:#fff;background:var(--ink);padding:10px 20px;border-radius:999px}
+nav .pill:hover{background:var(--accent)}
 
 /* buttons */
-.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;transition:background .2s,border-color .2s,color .2s}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover,.btn-primary:focus-visible{background:var(--accent-ink)}
-.btn-ghost{border:1.5px solid var(--line);color:var(--ink);background:#fff}
-.btn-ghost:hover,.btn-ghost:focus-visible{border-color:var(--accent);color:var(--accent)}
+.btn{display:inline-block;padding:15px 28px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .25s,border-color .25s,color .25s,transform .25s;will-change:transform}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--accent)}
+.btn-ghost{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--ink);color:#fff}
 
 /* hero */
-.hero{padding:104px 0 96px;background:radial-gradient(1000px 420px at 85% -10%,var(--accent-soft),transparent 70%)}
-.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px}
-h1{font-size:clamp(40px,6.4vw,72px);font-weight:800;margin:22px 0 22px;max-width:16ch}
-.lead{max-width:58ch;color:var(--muted);font-size:19px}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero{position:relative;padding:120px 0 110px;overflow:hidden}
+.hero-in{position:relative;z-index:1}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.7;z-index:0;animation:float 14s ease-in-out infinite}
+.b1{width:420px;height:420px;background:#d9c2fb;right:-80px;top:-60px}
+.b2{width:320px;height:320px;background:#c9d6ff;right:22%;bottom:-120px;animation-delay:-6s}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,24px)}}
+.eyebrow{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);padding:7px 14px;border-radius:999px}
+h1{font-size:clamp(44px,7vw,84px);font-weight:800;margin:26px 0 26px;max-width:14ch}
+.lead{max-width:56ch;color:var(--muted);font-size:19px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.chips{position:absolute;right:var(--gutter);top:30px;width:170px;height:340px;pointer-events:none}
+.chip{position:absolute;font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;box-shadow:0 10px 24px -14px rgba(74,36,196,.45);animation:bob 6s ease-in-out infinite}
+.c1{top:10px;right:0}.c2{top:95px;right:30px;animation-delay:-2s}.c3{top:180px;right:0;animation-delay:-4s}.c4{top:265px;right:24px;animation-delay:-1s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap}
+.marq-t{display:inline-flex;gap:28px;padding:16px 0;animation:mq 32s linear infinite;font-family:'Manrope',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase}
+.marq-t i{font-style:normal;color:#b79bff}
+.marq:hover .marq-t{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
 
 /* sections */
-section{padding:84px 0}
+section{padding:96px 0;position:relative}
 section.alt{background:var(--tint)}
-.kicker{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
-h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px}
-.sub{color:var(--muted);max-width:60ch;margin-bottom:44px;font-size:17px}
+.kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h2{font-size:clamp(30px,4.6vw,52px);font-weight:800;margin-bottom:14px}
+.sub{color:var(--muted);max-width:60ch;margin-bottom:40px;font-size:17px}
 .grid{display:grid;gap:20px}
 .g2{grid-template-columns:repeat(2,1fr)}
-.g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 26px}
-.card h3{font-size:21px;font-weight:700;margin-bottom:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 28px;transition:border-color .25s,box-shadow .25s,transform .25s}
+.card:hover{border-color:var(--accent);box-shadow:0 22px 40px -24px rgba(74,36,196,.45)}
+.card h3{font-size:22px;font-weight:700;margin-bottom:10px}
 .card p{color:var(--muted);font-size:15px}
+
+/* filter tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:-8px 0 28px}
+.tab{border:1.5px solid var(--line);background:#fff;color:var(--muted);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:9px 18px;border-radius:999px;transition:all .2s}
+.tab:hover{border-color:var(--accent);color:var(--accent)}
+.tab.on{background:var(--ink);border-color:var(--ink);color:#fff}
 
 /* products */
 .prods{display:grid;gap:22px}
-.prod{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:38px 36px;transition:border-color .2s,box-shadow .2s}
-.prod:hover{border-color:var(--accent);box-shadow:0 14px 34px -18px rgba(47,91,234,.35)}
-.prod .domain{font-size:13px;color:var(--muted);font-weight:500;margin-bottom:10px}
-.prod h3{font-size:34px;font-weight:800;margin-bottom:8px}
-.prod .tag{font-size:17px;font-weight:600;color:var(--accent-ink);margin-bottom:16px;line-height:1.35}
+.prod{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:42px 40px;transition:border-color .25s,box-shadow .25s,transform .25s,opacity .3s}
+.prod:hover{border-color:var(--accent);box-shadow:0 26px 50px -28px rgba(74,36,196,.5)}
+.prod.hide{display:none}
+.prod .domain{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted);font-weight:500;margin-bottom:12px}
+.pn{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--accent)}
+.prod h3{font-size:clamp(32px,4vw,44px);font-weight:800;margin-bottom:8px}
+.prod .tag{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--accent-ink);margin-bottom:16px;line-height:1.35}
 .prod p.d{color:var(--muted);font-size:16px;margin-bottom:26px}
 .prod h4{font-family:'Manrope','Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
 .prod ul{list-style:none;display:grid;gap:11px;margin-bottom:22px}
@@ -139,66 +172,82 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:12px}
 .prod .for b{color:var(--ink);font-weight:600}
 
 /* about */
-.mv .card{background:#fff}
 .mv h3{color:var(--accent-ink)}
 
 /* services */
-.num{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent-ink);font-weight:700;font-size:14px;margin-bottom:16px}
+.num{display:inline-block;font-family:var(--serif);font-style:italic;font-size:34px;color:var(--accent);margin-bottom:10px;line-height:1}
 ul.tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-ul.tags li{font-size:13px;color:var(--accent-ink);background:var(--accent-soft);padding:5px 12px;border-radius:999px;font-weight:500}
+ul.tags li{font-size:13px;color:var(--accent-ink);background:var(--accent-soft);padding:5px 12px;border-radius:999px;font-weight:500;transition:background .2s,color .2s}
+.card:hover ul.tags li{background:var(--accent);color:#fff}
 
 /* why */
-.tick{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;margin-bottom:16px}
+.tick{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;margin-bottom:16px;transition:background .25s,transform .25s}
+.card:hover .tick{background:var(--accent);transform:rotate(-12deg) scale(1.08)}
 .tick svg{width:18px;height:18px}
 
 /* contact */
 .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
-dl.info{display:grid;grid-template-columns:90px 1fr;gap:14px 16px;font-size:16px}
+dl.info{display:grid;grid-template-columns:100px 1fr;gap:14px 16px;font-size:16px}
 dl.info dt{color:var(--muted)}
 dl.info a{color:var(--accent-ink);font-weight:600;text-underline-offset:3px}
-.cta-box{background:var(--ink);color:#fff;border-radius:20px;padding:36px 32px}
-.cta-box h3{font-size:26px;font-weight:800;margin-bottom:12px}
-.cta-box p{color:#c3cad8;margin-bottom:24px}
-.cta-box .btn{background:#fff;color:var(--ink)}
+.cta-box{background:var(--ink);color:#fff;border-radius:26px;padding:40px 34px;position:relative;overflow:hidden}
+.cta-box::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(150,110,255,.5),transparent 70%)}
+.cta-box h3{font-size:28px;font-weight:800;margin-bottom:12px;position:relative}
+.cta-box p{color:#c9c3de;margin-bottom:26px;position:relative}
+.cta-box .btn{background:#fff;color:var(--ink);position:relative}
 .cta-box .btn:hover,.cta-box .btn:focus-visible{background:var(--accent-soft)}
 
 /* footer */
-footer{background:#111827;color:#a9b1c1;padding:34px 0 30px;font-size:14px}
+footer{background:var(--ink);color:#a9a4c0;padding:36px 0 30px;font-size:14px}
 .frow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px}
 .flogo{font-family:'Manrope','Inter',sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1}
-.flogo span{color:#4f7bff}
+.flogo span{color:#9a79ff}
 .flinks{display:flex;flex-wrap:wrap;gap:8px 24px;list-style:none}
-footer a{color:#a9b1c1;text-decoration:none}
+footer a{color:#a9a4c0;text-decoration:none;transition:color .2s}
 footer a:hover,footer a:focus-visible{color:#fff}
-.fmeta{margin-top:22px;padding-top:20px;border-top:1px solid #243049;font-size:13px;line-height:1.7;align-items:flex-start}
-.fmeta p{margin:0}
+.fmeta{margin-top:22px;padding-top:20px;border-top:1px solid #2b2650;font-size:13px;line-height:1.7;align-items:flex-start}
+.fmeta p{margin:0;overflow-wrap:anywhere}
 .fmeta .sep{margin:0 8px;opacity:.5}
 
+/* reveal (only when JS is running) */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease,border-color .25s,box-shadow .25s}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.in.tilt{transition:opacity .7s ease,transform .15s ease-out,border-color .25s,box-shadow .25s}
+
+@media (max-width:1180px){.chips{display:none}}
 @media (max-width:900px){
   .prod{grid-template-columns:1fr;gap:26px}
   .g4{grid-template-columns:repeat(2,1fr)}
-  .g3{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
+  .chips{display:none}
 }
 @media (max-width:640px){
-  .prod{padding:28px 22px}
-  .prod h3{font-size:29px}
+  .prod{padding:30px 22px}
   .g2,.g4{grid-template-columns:1fr}
-  .hero{padding:64px 0 60px}
-  section{padding:60px 0}
+  .hero{padding:68px 0 64px}
+  section{padding:64px 0}
   nav{gap:14px}
   nav a.hide-sm{display:none}
   dl.info{grid-template-columns:1fr;gap:2px 0}
   dl.info dd{margin-bottom:12px}
+  .marq-t{font-size:16px}
+  .fmeta .sep{display:none}
+  .fmeta p a{display:block}
 }
+@media (hover:none){.glow{display:none}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .prod,.btn,nav a{transition:none}
+  .blob,.chip,.marq-t{animation:none}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .btn,.card,.prod,nav a{transition:none}
 }
+
 </style>
 </head>
 <body>
 
+<div class="prog" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"></div>
 <header>
   <div class="wrap bar">
     <a class="brand" href="/" aria-label="Elephic Intelligence home"><img src="/logo.png" width="40" height="40" alt=""><span class="t"><b>ELEPHIC</b><small>INTELLIGENCE</small></span></a>
@@ -212,28 +261,32 @@ footer a:hover,footer a:focus-visible{color:#fff}
 </header>
 
 <main>
-  <div class="hero">
-    <div class="wrap">
-      <span class="eyebrow">Elephic Intelligence</span>
-      <h1>Innovation Through Technology</h1>
+  <div class="hero" id="top">
+    <div class="blob b1" aria-hidden="true"></div><div class="blob b2" aria-hidden="true"></div>
+    <div class="wrap hero-in">
+      <span class="eyebrow">Elephic Intelligence &middot; Gurugram, India</span>
+      <h1>Innovation through <em>technology.</em></h1>
       <p class="lead">Empowering businesses with cutting-edge software solutions, AI automation, and cloud technologies. Transform your vision into reality with Elephic Intelligence.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="#contact">Get in Touch</a>
-        <a class="btn btn-ghost" href="#services">Our Services</a>
+        <a class="btn btn-primary mag" href="#products">Explore our products</a>
+        <a class="btn btn-ghost mag" href="#contact">Get in Touch</a>
       </div>
+      <div class="chips" aria-hidden="true"><span class="chip c1">AI Automation</span><span class="chip c2">Software</span><span class="chip c3">Cloud</span><span class="chip c4">Web &amp; Mobile</span></div>
     </div>
   </div>
+  <div class="marq" aria-hidden="true"><div class="marq-t"><span>EcomGen</span><i>&#10022;</i><span>CloudFace AI</span><i>&#10022;</i><span>TrimPixo</span><i>&#10022;</i><span>AI Automation</span><i>&#10022;</i><span>Cloud Solutions</span><i>&#10022;</i><span>EcomGen</span><i>&#10022;</i><span>CloudFace AI</span><i>&#10022;</i><span>TrimPixo</span><i>&#10022;</i><span>AI Automation</span><i>&#10022;</i><span>Cloud Solutions</span><i>&#10022;</i></div></div>
 
   <section id="products" aria-labelledby="products-h">
     <div class="wrap">
-      <p class="kicker">Our Products</p>
-      <h2 id="products-h">Products we build and run</h2>
+      <p class="kicker">01 &mdash; Our Products</p>
+      <h2 id="products-h">Products we <em>build and run</em></h2>
       <p class="sub">Each product has its own site and its own users.</p>
+      <div class="tabs" role="group" aria-label="Filter products"><button type="button" class="tab on" data-f="all">All</button><button type="button" class="tab" data-f="ecomgen">EcomGen</button><button type="button" class="tab" data-f="cloudface">CloudFace AI</button><button type="button" class="tab" data-f="trimpixo">TrimPixo</button></div>
       <div class="prods">
 
-        <article class="prod">
+        <article class="prod rv" data-p="ecomgen">
           <div>
-            <p class="domain">ecomgen.io</p>
+            <p class="domain"><span class="pn">01</span>ecomgen.io</p>
             <h3>EcomGen</h3>
             <p class="tag">The AI studio that builds your fashion brand.</p>
             <p class="d">EcomGen is an AI fashion production studio for fashion, beauty and lifestyle brands. Upload your product photos and it produces on-model photos, catalogue images, lifestyle visuals, short videos and ad creatives, with no prompt writing needed. Brand DNA keeps your colours, style and tone consistent across everything it makes.</p>
@@ -253,9 +306,9 @@ footer a:hover,footer a:focus-visible{color:#fff}
           </div>
         </article>
 
-        <article class="prod">
+        <article class="prod rv" data-p="cloudface">
           <div>
-            <p class="domain">cloudface-ai.com</p>
+            <p class="domain"><span class="pn">02</span>cloudface-ai.com</p>
             <h3>CloudFace AI</h3>
             <p class="tag">Every guest finds their event photos with one selfie.</p>
             <p class="d">CloudFace AI is an AI face search platform for event photos. Organisers and photographers upload an event's photos and share a QR code or WhatsApp link. Guests take a single selfie, see every photo they appear in, and download them all in one ZIP. Guests do not need to install an app.</p>
@@ -275,9 +328,9 @@ footer a:hover,footer a:focus-visible{color:#fff}
           </div>
         </article>
 
-        <article class="prod">
+        <article class="prod rv" data-p="trimpixo">
           <div>
-            <p class="domain">trimpixo.com</p>
+            <p class="domain"><span class="pn">03</span>trimpixo.com</p>
             <h3>TrimPixo</h3>
             <p class="tag">Simple online image tools.</p>
             <p class="d">TrimPixo is a set of online image tools. Its batch watermark tool adds a watermark to many images in one go and returns them as a single ZIP, so branding a full set of pictures takes a few clicks.</p>
@@ -302,15 +355,15 @@ footer a:hover,footer a:focus-visible{color:#fff}
 
   <section id="about" class="alt" aria-labelledby="about-h">
     <div class="wrap">
-      <p class="kicker">About</p>
-      <h2 id="about-h">About Elephic Intelligence Private Limited</h2>
+      <p class="kicker">02 &mdash; About</p>
+      <h2 id="about-h">About Elephic <em>Intelligence</em> Private Limited</h2>
       <p class="sub">We are a forward-thinking technology company dedicated to delivering innovative software solutions that drive business transformation and growth.</p>
       <div class="grid g2 mv">
-        <div class="card">
+        <div class="card rv tilt">
           <h3>Our Mission</h3>
           <p>To empower businesses of all sizes with cutting-edge technology solutions that streamline operations, enhance productivity, and unlock new opportunities for growth. We strive to be the trusted technology partner that transforms visionary ideas into impactful digital realities.</p>
         </div>
-        <div class="card">
+        <div class="card rv tilt">
           <h3>Our Vision</h3>
           <p>To become a global leader in innovative technology solutions, recognized for our excellence in software development, AI automation, and digital transformation. We envision a future where technology seamlessly integrates with business strategy to create sustainable competitive advantages.</p>
         </div>
@@ -320,29 +373,29 @@ footer a:hover,footer a:focus-visible{color:#fff}
 
   <section id="services" aria-labelledby="services-h">
     <div class="wrap">
-      <p class="kicker">Our Services</p>
-      <h2 id="services-h">Comprehensive technology solutions</h2>
+      <p class="kicker">03 &mdash; Our Services</p>
+      <h2 id="services-h">Comprehensive <em>technology solutions</em></h2>
       <p class="sub">Designed to accelerate your digital transformation journey.</p>
       <div class="grid g2">
-        <div class="card">
+        <div class="card rv tilt">
           <span class="num">01</span>
           <h3>Software Development</h3>
           <p>Custom software solutions tailored to your unique business needs. From enterprise applications to scalable platforms, we build robust, maintainable code that stands the test of time.</p>
           <ul class="tags"><li>Custom Applications</li><li>Enterprise Solutions</li><li>API Development</li><li>System Integration</li></ul>
         </div>
-        <div class="card">
+        <div class="card rv tilt">
           <span class="num">02</span>
           <h3>AI &amp; Automation</h3>
           <p>Harness the power of artificial intelligence and machine learning to automate processes, gain insights, and make data-driven decisions that propel your business forward.</p>
           <ul class="tags"><li>Machine Learning</li><li>Process Automation</li><li>Intelligent Analytics</li><li>Predictive Models</li></ul>
         </div>
-        <div class="card">
+        <div class="card rv tilt">
           <span class="num">03</span>
           <h3>Web &amp; Mobile Applications</h3>
           <p>Beautiful, responsive applications that deliver exceptional user experiences across all devices. We create digital experiences that engage users and drive results.</p>
           <ul class="tags"><li>Responsive Web Apps</li><li>Native Mobile Apps</li><li>Progressive Web Apps</li><li>Cross-Platform Solutions</li></ul>
         </div>
-        <div class="card">
+        <div class="card rv tilt">
           <span class="num">04</span>
           <h3>Cloud &amp; Digital Solutions</h3>
           <p>Modern cloud infrastructure and digital transformation services that ensure your business is agile, secure, and ready for the future of technology.</p>
@@ -354,26 +407,26 @@ footer a:hover,footer a:focus-visible{color:#fff}
 
   <section id="why" class="alt" aria-labelledby="why-h">
     <div class="wrap">
-      <p class="kicker">Why Choose Us</p>
-      <h2 id="why-h">Why Choose Elephic Intelligence</h2>
+      <p class="kicker">04 &mdash; Why Choose Us</p>
+      <h2 id="why-h">Why choose <em>Elephic Intelligence</em></h2>
       <p class="sub">We combine technical excellence with a commitment to your success.</p>
       <div class="grid g4">
-        <div class="card">
+        <div class="card rv tilt">
           <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
           <h3>Fast &amp; Efficient</h3>
           <p>We deliver high-quality solutions quickly without compromising on excellence.</p>
         </div>
-        <div class="card">
+        <div class="card rv tilt">
           <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
           <h3>Secure &amp; Reliable</h3>
           <p>Your data security and system reliability are our top priorities.</p>
         </div>
-        <div class="card">
+        <div class="card rv tilt">
           <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
           <h3>Expert Team</h3>
           <p>Our experienced professionals bring deep technical expertise to every project.</p>
         </div>
-        <div class="card">
+        <div class="card rv tilt">
           <span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>
           <h3>Proven Results</h3>
           <p>Track record of successful implementations and satisfied clients.</p>
@@ -385,19 +438,21 @@ footer a:hover,footer a:focus-visible{color:#fff}
   <section id="contact" aria-labelledby="contact-h">
     <div class="wrap contact">
       <div>
-        <p class="kicker">Contact</p>
-        <h2 id="contact-h">Get in Touch</h2>
+        <p class="kicker">05 &mdash; Contact</p>
+        <h2 id="contact-h">Get in <em>Touch</em></h2>
         <p class="sub">Ready to transform your business? Let's start a conversation.</p>
         <dl class="info">
-          <dt>Email</dt><dd><a href="mailto:info@elephictech.com">info@elephictech.com</a></dd>
+          <dt>General</dt><dd><a href="mailto:contact@elephictech.com">contact@elephictech.com</a></dd>
+          <dt>Enquiries</dt><dd><a href="mailto:info@elephictech.com">info@elephictech.com</a></dd>
+          <dt>Careers</dt><dd><a href="mailto:hr@elephictech.com">hr@elephictech.com</a></dd>
           <dt>Phone</dt><dd><a href="tel:+919718686723">+91 9718686723</a></dd>
           <dt>Location</dt><dd>Global Services</dd>
         </dl>
       </div>
-      <div class="cta-box">
+      <div class="cta-box rv">
         <h3>Let's Build Something Amazing</h3>
         <p>Whether you're a startup with a bold vision or an enterprise seeking digital transformation, we're here to help bring your ideas to life.</p>
-        <a class="btn" href="mailto:info@elephictech.com?subject=Project%20enquiry">Send Us a Message</a>
+        <a class="btn mag" href="mailto:contact@elephictech.com?subject=Project%20enquiry">Send Us a Message</a>
       </div>
     </div>
   </section>
@@ -416,10 +471,56 @@ footer a:hover,footer a:focus-visible{color:#fff}
     </div>
     <div class="fmeta frow">
       <p>&copy; 2026 ELEPHIC INTELLIGENCE PRIVATE LIMITED &middot; CIN: U62011HR2026PTC149378<br>B-01, Ground Floor, Tower B, IRIS Tech Park, Sector 48, Gurugram, Haryana &ndash; 122018, India</p>
-      <p><a href="mailto:info@elephictech.com">info@elephictech.com</a><span class="sep">/</span><a href="tel:+919718686723">+91 97186 86723</a></p>
+      <p><a href="mailto:contact@elephictech.com">contact@elephictech.com</a><span class="sep">/</span><a href="mailto:info@elephictech.com">info@elephictech.com</a><span class="sep">/</span><a href="mailto:hr@elephictech.com">hr@elephictech.com</a><span class="sep">/</span><a href="tel:+919718686723">+91 97186 86723</a></p>
     </div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var d=document,de=d.documentElement,rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  de.classList.add('js');
+  var rv=[].slice.call(d.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window&&!rm){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add('in');io.unobserve(t);setTimeout(function(){t.style.transitionDelay=''},1200)}})},{threshold:.12});
+    rv.forEach(function(el,i){el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+  }else{rv.forEach(function(el){el.classList.add('in')})}
+
+  var prog=d.querySelector('.prog');
+  function onScroll(){var h=de.scrollHeight-innerHeight;prog.style.transform='scaleX('+(h>0?scrollY/h:0)+')'}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var links=[].slice.call(d.querySelectorAll('nav a[href^="#"]:not(.pill)'));
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+    ['products','about','services'].forEach(function(id){var el=d.getElementById(id);if(el)so.observe(el)});
+  }
+
+  var tabs=[].slice.call(d.querySelectorAll('.tab')),prods=[].slice.call(d.querySelectorAll('.prod'));
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.toggle('on',x===t)});
+    var f=t.getAttribute('data-f');
+    prods.forEach(function(p){p.classList.toggle('hide',f!=='all'&&p.getAttribute('data-p')!==f)});
+  })});
+
+  var fine=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(fine&&!rm){
+    var g=d.querySelector('.glow'),gx=0,gy=0,tx=0,ty=0,raf=0;
+    addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;g.classList.add('on');if(!raf)raf=requestAnimationFrame(loop)});
+    function loop(){gx+=(tx-gx)*.12;gy+=(ty-gy)*.12;g.style.transform='translate('+gx+'px,'+gy+'px)';raf=(Math.abs(tx-gx)>.5||Math.abs(ty-gy)>.5)?requestAnimationFrame(loop):0}
+    d.addEventListener('mouseleave',function(){g.classList.remove('on')});
+
+    d.querySelectorAll('.tilt').forEach(function(c){
+      c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(800px) rotateX('+(-y*5)+'deg) rotateY('+(x*6)+'deg) translateY(-3px)'});
+      c.addEventListener('mouseleave',function(){c.style.transform=''});
+    });
+    d.querySelectorAll('.mag').forEach(function(b){
+      b.addEventListener('mousemove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.18)+'px,'+((e.clientY-r.top-r.height/2)*.28)+'px)'});
+      b.addEventListener('mouseleave',function(){b.style.transform=''});
+    });
+  }
+})();
+
+</script>
 </body>
 </html>
